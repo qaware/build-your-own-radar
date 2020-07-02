@@ -1,11 +1,12 @@
 FROM node:10.15.3 as source
 WORKDIR /src/build-your-own-radar
 COPY package.json ./
+ENV PORT 8080
+ENV HOST 0.0.0.0
 RUN npm install
 COPY . ./
 RUN npm run build
-ENV PORT 8080
-ENV HOST 0.0.0.0
+
 
 FROM nginx:1.19.0-alpine
 WORKDIR /opt/build-your-own-radar
