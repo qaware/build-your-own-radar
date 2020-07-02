@@ -1,5 +1,7 @@
 /* eslint no-constant-condition: "off" */
 
+var url = 'https://docs.google.com/spreadsheets/d/1FNEb-6MYjfIBg111Sn-tiBdd3KCJdthN3fgR0glAi4s/edit#gid=1985253373'
+
 const d3 = require('d3')
 const Tabletop = require('tabletop')
 const _ = {
@@ -202,11 +204,11 @@ const GoogleSheetInput = function () {
   var sheet
 
   self.build = function () {
-    var domainName = DomainName(window.location.search.substring(1))
-    var queryString = window.location.href.match(/sheetId(.*)/)
+    var queryString = ['sheetId=' + url, '=' + url]
     var queryParams = queryString ? QueryParams(queryString[0]) : {}
-
-    if (domainName && queryParams.sheetId.endsWith('csv')) {
+    sheet = GoogleSheet(queryParams.sheetId, queryParams.sheetName)
+    sheet.init().build()
+    /*if (domainName && queryParams.sheetId.endsWith('csv')) {
       sheet = CSVDocument(queryParams.sheetId)
       sheet.init().build()
     } else if (domainName && domainName.endsWith('google.com') && queryParams.sheetId) {
@@ -229,8 +231,7 @@ const GoogleSheetInput = function () {
 
       plotForm(content)
 
-      plotFooter(content)
-    }
+    }*/
   }
 
   return self
@@ -253,7 +254,6 @@ function plotLoading (content) {
 
   var bannerText = '<h1>Building your radar...</h1><p>Your Technology Radar will be available in just a few seconds</p>'
   plotBanner(content, bannerText)
-  plotFooter(content)
 }
 
 function plotLogo (content) {
@@ -262,18 +262,7 @@ function plotLogo (content) {
     .html('<a href="https://www.thoughtworks.com"><img src="/images/tw-logo.png" / ></a>')
 }
 
-function plotFooter (content) {
-  content
-    .append('div')
-    .attr('id', 'footer')
-    .append('div')
-    .attr('class', 'footer-content')
-    .append('p')
-    .html('Powered by <a href="https://www.thoughtworks.com"> ThoughtWorks</a>. ' +
-      'By using this service you agree to <a href="https://www.thoughtworks.com/radar/tos">ThoughtWorks\' terms of use</a>. ' +
-      'You also agree to our <a href="https://www.thoughtworks.com/privacy-policy">privacy policy</a>, which describes how we will gather, use and protect any personal data contained in your public Google Sheet. ' +
-      'This software is <a href="https://github.com/thoughtworks/build-your-own-radar">open source</a> and available for download and self-hosting.')
-}
+
 
 function plotBanner (content, text) {
   content.append('div')
@@ -293,7 +282,7 @@ function plotForm (content) {
   form.append('input')
     .attr('type', 'text')
     .attr('name', 'sheetId')
-    .attr('placeholder', 'e.g. https://docs.google.com/spreadsheets/d/<sheetid> or hosted CSV file')
+    .attr('value', 'https://docs.google.com/spreadsheets/d/18A7oDuavlh89rAmqcaXpqle8QLqIvlAkoEUxcObzuUM/edit#gid=1985253373')
     .attr('required', '')
 
   form.append('button')
@@ -346,7 +335,6 @@ function plotErrorMessage (exception) {
   errorContainer.append('div').append('p')
     .html(homePage)
 
-  plotFooter(content)
 }
 
 function plotUnauthorizedErrorMessage () {

@@ -17,10 +17,28 @@ header {
     margin: auto;
     width: 100%;
 
+    .radar-title__logo {
+      flex: 0 0 30%;
+
+      width: 70%;
+      display: table-cell;
+      vertical-align: middle;
+
+      a {
+        border-bottom: none;
+      }
+
+      img {
+        vertical-align: middle;
+        width: 100%;
+      }
+    }
+
     .radar-title__text {
 
       display: table-cell;
       width: 70%;
+      margin-left: auto;
 
       text-align: left;
       padding-left: 10%;
@@ -32,24 +50,6 @@ header {
         line-height: 0.8em;
         margin: 0;
         text-transform: uppercase;
-      }
-    }
-
-    .radar-title__logo {
-      flex: 0 0 30%;
-      margin-left: auto;
-
-      width: 30%;
-      display: table-cell;
-      vertical-align: middle;
-
-      a {
-        border-bottom: none;
-      }
-
-      img {
-        vertical-align: middle;
-        width: 34%;
       }
     }
   }
