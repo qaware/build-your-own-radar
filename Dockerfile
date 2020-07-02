@@ -5,8 +5,8 @@ RUN npm install
 COPY . ./
 RUN npm run build
 
-FROM nginx:1.15.9
+FROM nginx:1.19.0-alpine
 WORKDIR /opt/build-your-own-radar
 COPY --from=source /src/build-your-own-radar/dist .
 COPY default.template /etc/nginx/conf.d/default.conf
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
