@@ -4,6 +4,8 @@ COPY package.json ./
 RUN npm install
 COPY . ./
 RUN npm run build
+ENV PORT 8080
+ENV HOST 0.0.0.0
 
 FROM nginx:1.19.0-alpine
 WORKDIR /opt/build-your-own-radar
