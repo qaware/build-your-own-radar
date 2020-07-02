@@ -13,7 +13,7 @@ steps:
       '.'
     ]
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', 'techradar', '--image', 'gcr.io/$PROJECT_ID/techradar', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
+    args: ['run', 'deploy', 'techradar:latest', '--image', 'gcr.io/$PROJECT_ID/techradar', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
 
 images: ['gcr.io/qaware-techradar/techradar:latest']
 
