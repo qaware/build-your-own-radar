@@ -14,7 +14,7 @@ steps:
     ]
 
 
-images:
-  - 'gcr.io/qaware-techradar/techradar'
+images: ['gcr.io/qaware-techradar/techradar:latest']
+
 
 
