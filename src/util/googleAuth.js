@@ -2,8 +2,8 @@
 const d3 = require('d3')
 
 // Client ID and API key from the Developer Console
-var CLIENT_ID = '308872114384-4n898992po8ma96qht9u136td4k7vcua.apps.googleusercontent.com'
-var API_KEY = 'AIzaSyAqfdlhINANwfDbgYG92zD9kp601QM79yc'
+var CLIENT_ID = '560486153837-33p68ur8md9ohhghqe6p4jl14lk5g087.apps.googleusercontent.com'
+var API_KEY = 'AIzaSyCuwWiRYMLvAbvlykqaW3aMU6zM6BjzRuw'
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ['https://sheets.googleapis.com/$discovery/rest?version=v4']
