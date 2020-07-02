@@ -1,25 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>search@2x</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <path d="M12.502,6.491 L11.708,6.491 L11.432,6.765 C12.407,7.902 13,9.376 13,10.991 C13,14.581 10.09,17.491 6.5,17.491 C2.91,17.491 0,14.581 0,10.991 C0,7.401 2.91,4.491 6.5,4.491 C8.115,4.491 9.588,5.083 10.725,6.057 L11.001,5.783 L11.001,4.991 L15.999,0 L17.49,1.491 L12.502,6.491 L12.502,6.491 Z M6.5,6.491 C4.014,6.491 2,8.505 2,10.991 C2,13.476 4.014,15.491 6.5,15.491 C8.985,15.491 11,13.476 11,10.991 C11,8.505 8.985,6.491 6.5,6.491 L6.5,6.491 Z" id="path-1"></path>
-    </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="BYOR-2" transform="translate(-1006.000000, -241.000000)">
-            <g id="Group-7" transform="translate(997.000000, 228.000000)">
-                <g id="Group">
-                    <g id="Group-2">
-                        <g id="Icon-/-Search-/-Filled" transform="translate(9.000000, 13.000000)">
-                            <mask id="mask-2" fill="white">
-                                <use xlink:href="#path-1"></use>
-                            </mask>
-                            <use id="search" fill="#F1328B" transform="translate(8.745000, 8.745500) scale(1, -1) translate(-8.745000, -8.745500) " xlink:href="#path-1"></use>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
-</svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20" width="20" height="20"><defs><path d="M13.45 12.94C13.28 12.77 13.18 12.68 13.16 12.66C14.18 11.53 14.8 10.05 14.8 8.44C14.8 4.85 11.76 1.94 8 1.94C4.24 1.94 1.2 4.85 1.2 8.44C1.2 12.03 4.24 14.94 8 14.94C9.69 14.94 11.23 14.34 12.42 13.37C12.44 13.39 12.54 13.48 12.71 13.64L12.71 14.44L17.94 19.43L19.5 17.94L14.28 12.94L14.28 12.94L13.45 12.94ZM3.29 8.44C3.29 5.95 5.4 3.94 8 3.94C10.6 3.94 12.71 5.95 12.71 8.44C12.71 10.92 10.6 12.94 8 12.94C8 12.94 8 12.94 8 12.94C4.86 11.59 3.29 10.09 3.29 8.44Z" id="c1cJAg74nA"></path></defs><g><g><g><g></g><use xlink:href="#c1cJAg74nA" opacity="1" fill="#325af1" fill-opacity="1"></use><g><use xlink:href="#c1cJAg74nA" opacity="1" fill-opacity="0" stroke="#000000" stroke-width="1" stroke-opacity="0"></use></g><g><filter id="shadow621843" x="-23.8" y="-23.06" width="88.3" height="67.49" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse"><feFlood></feFlood><feComposite in2="SourceAlpha" operator="out"></feComposite><feGaussianBlur stdDeviation="0"></feGaussianBlur><feOffset dx="-20" dy="0" result="afterOffset"></feOffset><feFlood flood-color="#000000" flood-opacity="0.5"></feFlood><feComposite in2="afterOffset" operator="in"></feComposite><feMorphology operator="dilate" radius="0"></feMorphology><feComposite in2="SourceAlpha" operator="in"></feComposite></filter><path d="M13.45 12.94C13.28 12.77 13.18 12.68 13.16 12.66C14.18 11.53 14.8 10.05 14.8 8.44C14.8 4.85 11.76 1.94 8 1.94C4.24 1.94 1.2 4.85 1.2 8.44C1.2 12.03 4.24 14.94 8 14.94C9.69 14.94 11.23 14.34 12.42 13.37C12.44 13.39 12.54 13.48 12.71 13.64L12.71 14.44L17.94 19.43L19.5 17.94L14.28 12.94L14.28 12.94L13.45 12.94ZM3.29 8.44C3.29 5.95 5.4 3.94 8 3.94C10.6 3.94 12.71 5.95 12.71 8.44C12.71 10.92 10.6 12.94 8 12.94C8 12.94 8 12.94 8 12.94C4.86 11.59 3.29 10.09 3.29 8.44Z" id="a1Abd66Kop" fill="white" fill-opacity="1" filter="url(#shadow621843)"></path></g></g></g></g></svg>
