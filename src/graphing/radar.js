@@ -491,19 +491,6 @@ const Radar = function (size, radar) {
     AutoComplete('#auto-complete', quadrants, searchBlip)
   }
 
-  function plotRadarFooter () {
-    d3.select('body')
-      .insert('div', '#radar-plot + *')
-      .attr('id', 'footer')
-      .append('div')
-      .attr('class', 'footer-content')
-      .append('p')
-      .html('Powered by <a href="https://www.thoughtworks.com"> ThoughtWorks</a>. ' +
-      'By using this service you agree to <a href="https://www.thoughtworks.com/radar/tos">ThoughtWorks\' terms of use</a>. ' +
-      'You also agree to our <a href="https://www.thoughtworks.com/privacy-policy">privacy policy</a>, which describes how we will gather, use and protect any personal data contained in your public Google Sheet. ' +
-      'This software is <a href="https://github.com/thoughtworks/build-your-own-radar">open source</a> and available for download and self-hosting.')
-  }
-
   function mouseoverQuadrant (order) {
     d3.select('.quadrant-group-' + order).style('opacity', 1)
     d3.selectAll('.quadrant-group:not(.quadrant-group-' + order + ')').style('opacity', 0.3)
@@ -627,7 +614,6 @@ const Radar = function (size, radar) {
       plotBlips(quadrantGroup, rings, quadrant)
     })
 
-    plotRadarFooter()
   }
 
   return self
