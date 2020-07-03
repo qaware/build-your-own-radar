@@ -58,7 +58,9 @@
     "jquery": "^3.4.0",
     "jquery-ui": "^1.12.1",
     "lodash": "^4.17.15",
+    "react-app-polyfill": "^1.0.6",
     "sanitize-html": "^1.20.0",
+    "screenz": "^1.0.0",
     "tabletop": "^1.6.2"
   },
   "peerDependencies": {
