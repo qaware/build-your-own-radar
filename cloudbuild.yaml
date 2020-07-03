@@ -3,7 +3,7 @@ steps:
     args:
       - --destination=gcr.io/$PROJECT_ID/image
       - --cache=true
-      - --cache-ttl=XXh
+      - --cache-ttl=6h
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['run', 'deploy', 'techradar', '--image', 'gcr.io/$PROJECT_ID/techradar/cache', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
