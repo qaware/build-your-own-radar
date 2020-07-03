@@ -521,7 +521,7 @@ const Radar = function (size, radar) {
 
     var scale = 1.5
     if (w < h) scale *= w*w
-    else sclae *= h*h
+    else scale *= h*h
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
