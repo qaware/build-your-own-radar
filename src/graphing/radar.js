@@ -519,7 +519,7 @@ const Radar = function (size, radar) {
     h = 1-h
 
 
-    var scale = 1.5
+    var scale = 10
     if (w < h) scale *= w*w
     else scale *= h*h
 
