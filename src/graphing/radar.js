@@ -14,14 +14,11 @@ const Radar = function (size, radar) {
   var svg, radarElement, quadrantButtons, buttonsGroup, header, alternativeDiv
 
   var w = 1440/window.width
-  var h = 900/window.innerHeight
+  var h = 900/window.height
 
   if (w < h) size *= w
   else size *= h
 
-  var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))
-
-  if (isSafari) size /= 3
 
   var tip = d3tip().attr('class', 'd3-tip').html(function (text) {
     return text
