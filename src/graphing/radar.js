@@ -515,9 +515,6 @@ const Radar = function (size, radar) {
 
     var w = 2000/window.innerWidth
     var h = 1000/window.innerHeight
-    w = 1-w
-    h = 1-h
-
 
     var scale = 2.5
     if (w < h) scale *= w
