@@ -6,6 +6,7 @@ const _ = require('lodash/core')
 const RingCalculator = require('../util/ringCalculator')
 const QueryParams = require('../util/queryParamProcessor')
 const AutoComplete = require('../util/autoComplete')
+var {width,height} = require('screenz')
 
 const MIN_BLIP_WIDTH = 12
 const ANIMATION_DURATION = 1000
@@ -13,9 +14,10 @@ const ANIMATION_DURATION = 1000
 const Radar = function (size, radar) {
   var svg, radarElement, quadrantButtons, buttonsGroup, header, alternativeDiv
 
-  var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))
-
-  if (isSafari) size /= 3
+  var w = 1400/width
+  var h = 900/height
+  if (w<h) size *= w
+  else size *= h
 
   var tip = d3tip().attr('class', 'd3-tip').html(function (text) {
     return text
@@ -515,12 +517,7 @@ const Radar = function (size, radar) {
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
     var scale = 2
-    var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))
 
-    if (isSafari) {
-      scale /= 3
-      console.log('size-change')
-    }
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
