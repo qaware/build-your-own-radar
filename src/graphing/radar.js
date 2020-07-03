@@ -513,10 +513,10 @@ const Radar = function (size, radar) {
     d3.selectAll('.quadrant-table.' + order).classed('selected', true)
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
-    var w = 2000/window.innerWidth
-    var h = 1000/window.innerHeight
+    var w = window.innerWidth/2000
+    var h = window.innerHeight/1000
 
-    var scale = 2.5
+    var scale = 2
     if (w < h) scale *= w
     else scale *= h
 
