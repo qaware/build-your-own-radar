@@ -517,7 +517,10 @@ const Radar = function (size, radar) {
     var scale = 2
     var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))
 
-    if (isSafari) scale /= 3
+    if (isSafari) {
+      scale /= 3
+      console.log('size-change')
+    }
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
