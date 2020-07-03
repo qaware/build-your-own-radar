@@ -2,7 +2,6 @@ const d3 = require('d3')
 const d3tip = require('d3-tip')
 const Chance = require('chance')
 const _ = require('lodash/core')
-//var { width, height } = require('screenz')
 
 const RingCalculator = require('../util/ringCalculator')
 const QueryParams = require('../util/queryParamProcessor')
@@ -13,11 +12,6 @@ const ANIMATION_DURATION = 1000
 
 const Radar = function (size, radar) {
   var svg, radarElement, quadrantButtons, buttonsGroup, header, alternativeDiv
-  /*var w = 1440 / width
-  var h = 900 / height
-
-  if (w < h)size *= w
-  else size *= h*/
 
   var tip = d3tip().attr('class', 'd3-tip').html(function (text) {
     return text
