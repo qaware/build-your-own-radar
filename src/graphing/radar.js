@@ -13,8 +13,8 @@ const ANIMATION_DURATION = 1000
 const Radar = function (size, radar) {
   var svg, radarElement, quadrantButtons, buttonsGroup, header, alternativeDiv
 
-  var w = 1440/window.width
-  var h = 900/window.height
+  var w = 1440/window.innerWidth
+  var h = 900/window.innerHeight
 
   if (w < h) size *= w
   else size *= h
