@@ -15,7 +15,7 @@ const Radar = function (size, radar) {
 
   var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))
 
-  if (isSafari) size /= 2
+  if (isSafari) size /= 3
 
   var tip = d3tip().attr('class', 'd3-tip').html(function (text) {
     return text
