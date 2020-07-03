@@ -1,17 +1,10 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    entrypoint: 'bash'
+  - name: 'gcr.io/kaniko-project/executor:latest'
     args:
-        - '-c'
-        - |
-          docker pull gcr.io/qaware-techradar/techradar:latest || exit 0
-  - name: 'gcr.io/cloud-builders/docker'
-    args: [
-      'build',
-      '-t', 'gcr.io/qaware-techradar/techradar:latest',
-      '--cache-from', 'gcr.io/qaware-techradar/techradar:latest',
-      '.'
-    ]
+      - --destination=gcr.io/$PROJECT_ID/image
+      - --cache=true
+      - --cache-ttl=XXh
+
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['run', 'deploy', 'techradar', '--image', 'gcr.io/$PROJECT_ID/techradar', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
 
