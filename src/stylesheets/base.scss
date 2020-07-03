@@ -164,6 +164,103 @@ body {
     margin: 0 auto;
     position: relative;
 
+    div.quadrant-table {
+
+      .quadrant-table__name {
+        display: none;
+      }
+
+      max-height: 0;
+      max-width: 0;
+      position: absolute;
+      overflow: hidden;
+
+      transition: max-height 0.5s ease 1s;
+
+      h3 {
+        text-transform: uppercase;
+        font-size: $baseFont;
+        margin: 0;
+        font-weight: bold;
+      }
+
+      &.first {
+        &.selected {
+          float: right;
+        }
+      }
+
+      &.second {
+        &.selected {
+          float: left;
+        }
+      }
+
+      &.third {
+        &.selected {
+          float: left;
+        }
+      }
+
+      &.fourth {
+        &.selected {
+          float: right;
+        }
+      }
+
+      &.selected {
+        position: relative;
+        max-height: 8000px;
+        max-width: 40%;
+      }
+
+      ul {
+        padding: 0;
+        margin-left: 0;
+
+        li {
+          list-style-type: none;
+          padding-left: 0;
+
+          .blip-list-item {
+            padding: 2px 5px;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: $baseFont;
+            font-weight: 400;
+
+            &.highlight {
+              color: white;
+              background-color: rgba(0, 0, 0, 0.8);
+            }
+          }
+
+          .blip-item-description {
+            max-height: 0;
+            overflow: hidden;
+            width: 300px;
+
+            p {
+              margin: 0;
+              border-top: 1px solid rgb(119, 119, 119);
+              border-bottom: 1px solid rgb(119, 119, 119);
+              padding: 20px;
+              color: $grey-text;
+              font-weight: 100;
+              font-size: 14px;
+            }
+
+            transition: max-height 0.2s ease;
+
+            &.expanded {
+              transition: max-height 0.5s ease 0.2s;
+              max-height: 1000px;
+            }
+          }
+        }
+      }
+    }
+
     svg#radar-plot {
       margin: 0 auto;
       transition: all 1s ease;
@@ -246,103 +343,6 @@ body {
           text-transform: uppercase;
           fill: $black;
           font-size: 7px;
-        }
-      }
-    }
-
-    div.quadrant-table {
-
-      .quadrant-table__name {
-        display: none;
-      }
-
-      max-height: 0;
-      max-width: 0;
-      position: absolute;
-      overflow: hidden;
-
-      transition: max-height 0.5s ease 1s;
-
-      h3 {
-        text-transform: uppercase;
-        font-size: $baseFont;
-        margin: 0;
-        font-weight: bold;
-      }
-
-      &.first {
-        &.selected {
-          float: right;
-        }
-      }
-
-      &.second {
-        &.selected {
-          float: left;
-        }
-      }
-
-      &.third {
-        &.selected {
-          float: left;
-        }
-      }
-
-      &.fourth {
-        &.selected {
-          float: right;
-        }
-      }
-
-      &.selected {
-        position: relative;
-        max-height: 5000px;
-        max-width: 20%;
-      }
-
-      ul {
-        padding: 0;
-        margin-left: 0;
-
-        li {
-          list-style-type: none;
-          padding-left: 0;
-
-          .blip-list-item {
-            padding: 2px 5px;
-            border-radius: 2px;
-            cursor: pointer;
-            font-size: $baseFont;
-            font-weight: 400;
-
-            &.highlight {
-              color: white;
-              background-color: rgba(0, 0, 0, 0.8);
-            }
-          }
-
-          .blip-item-description {
-            max-height: 0;
-            overflow: hidden;
-            width: 300px;
-
-            p {
-              margin: 0;
-              border-top: 1px solid rgb(119, 119, 119);
-              border-bottom: 1px solid rgb(119, 119, 119);
-              padding: 20px;
-              color: $grey-text;
-              font-weight: 100;
-              font-size: 14px;
-            }
-
-            transition: max-height 0.2s ease;
-
-            &.expanded {
-              transition: max-height 0.5s ease 0.2s;
-              max-height: 1000px;
-            }
-          }
         }
       }
     }
