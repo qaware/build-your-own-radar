@@ -2,7 +2,6 @@ const d3 = require('d3')
 const d3tip = require('d3-tip')
 const Chance = require('chance')
 const _ = require('lodash/core')
-var { width, height } = require('screenz')
 
 const RingCalculator = require('../util/ringCalculator')
 const QueryParams = require('../util/queryParamProcessor')
@@ -13,11 +12,10 @@ const ANIMATION_DURATION = 1000
 
 const Radar = function (size, radar) {
   var svg, radarElement, quadrantButtons, buttonsGroup, header, alternativeDiv
-  var w = 1440 / width
-  var h = 900 / height
 
-  if (w < h)size *= w
-  else size *= h
+  var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))
+
+  if (isSafari) size /= 3
 
   var tip = d3tip().attr('class', 'd3-tip').html(function (text) {
     return text
@@ -290,7 +288,7 @@ const Radar = function (size, radar) {
 
     var clickBlip = function () {
       d3.select('.blip-item-description.expanded').node() !== blipItemDescription.node() &&
-        d3.select('.blip-item-description.expanded').classed('expanded', false)
+      d3.select('.blip-item-description.expanded').classed('expanded', false)
       blipItemDescription.classed('expanded', !blipItemDescription.classed('expanded'))
 
       blipItemDescription.on('click', function () {
@@ -414,7 +412,7 @@ const Radar = function (size, radar) {
     selectQuadrant.bind({}, quadrant.order, quadrant.startAngle)()
     const selectedDesc = d3.select('#blip-description-' + blip.number())
     d3.select('.blip-item-description.expanded').node() !== selectedDesc.node() &&
-        d3.select('.blip-item-description.expanded').classed('expanded', false)
+    d3.select('.blip-item-description.expanded').classed('expanded', false)
     selectedDesc.classed('expanded', true)
 
     d3.selectAll('g.blip-link').attr('opacity', 0.3)
@@ -517,7 +515,7 @@ const Radar = function (size, radar) {
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
     var scale = 2
-    
+
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
