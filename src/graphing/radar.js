@@ -514,11 +514,9 @@ const Radar = function (size, radar) {
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
     var w = window.innerWidth/2000
-    var h = window.innerHeight/1000
 
     var scale = 2
-    if (w < h) scale *= w
-    else scale *= h
+    scale *= w
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
