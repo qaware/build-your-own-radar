@@ -1,6 +1,7 @@
 steps:
   - name: 'gcr.io/kaniko-project/executor:latest'
     args: ["--dockerfile=./Dockerfile",
+           cache=true,
            "--destination=gcr.io/qaware-techradar/techradar:latest"]
 
   - name: 'gcr.io/cloud-builders/gcloud'
