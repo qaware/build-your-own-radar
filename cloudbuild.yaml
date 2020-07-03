@@ -2,7 +2,7 @@ steps:
   - name: 'gcr.io/kaniko-project/executor:latest'
     args: ["--dockerfile=./Dockerfile",
            "--context=dir://",
-           "--destination=<gcr.io/qaware-techradar/techradar:latest"]
+           "--destination=gcr.io/qaware-techradar/techradar:latest"]
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['run', 'deploy', 'techradar', '--image', 'gcr.io/$PROJECT_ID/techradar', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
