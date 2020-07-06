@@ -1,6 +1,6 @@
 /* eslint no-constant-condition: "off" */
 
-var url = 'https://docs.google.com/spreadsheets/d/1FNEb-6MYjfIBg111Sn-tiBdd3KCJdthN3fgR0glAi4s/edit#gid=1985253373'
+var url = 'https://europe-west1-qaware-techradar.cloudfunctions.net/GetSource'
 
 const d3 = require('d3')
 const Tabletop = require('tabletop')
@@ -204,13 +204,14 @@ const GoogleSheetInput = function () {
   var sheet
 
   self.build = function () {
+
     var queryString = ['sheetId=' + url, '=' + url]
     var queryParams = queryString ? QueryParams(queryString[0]) : {}
-    sheet = GoogleSheet(queryParams.sheetId, queryParams.sheetName)
+    sheet = CSVDocument(queryParams.sheetId)
     sheet.init().build()
+
     /*if (domainName && queryParams.sheetId.endsWith('csv')) {
-      sheet = CSVDocument(queryParams.sheetId)
-      sheet.init().build()
+
     } else if (domainName && domainName.endsWith('google.com') && queryParams.sheetId) {
       sheet = GoogleSheet(queryParams.sheetId, queryParams.sheetName)
       console.log(queryParams.sheetName)
