@@ -87,20 +87,37 @@ const Radar = function (size, radar) {
 
   function plotTexts (quadrantGroup, rings, quadrant) {
     rings.forEach(function (ring, i) {
+      var desc = ''
+      switch (ring.name()) {
+        case '1':
+          desc = 'Adopt'
+          break
+        case '2':
+          desc = 'Trial'
+          break
+        case '3':
+          desc = 'Assess'
+          break
+        case '4':
+          desc = 'Hold'
+          break
+        default:
+          break
+      }
       if (quadrant.order === 'first' || quadrant.order === 'fourth') {
         quadrantGroup.append('text')
           .attr('class', 'line-text')
           .attr('y', center() + 4)
           .attr('x', center() + (ringCalculator.getRadius(i) + ringCalculator.getRadius(i + 1)) / 2)
           .attr('text-anchor', 'middle')
-          .text(ring.name())
+          .text(desc)
       } else {
         quadrantGroup.append('text')
           .attr('class', 'line-text')
           .attr('y', center() + 4)
           .attr('x', center() - (ringCalculator.getRadius(i) + ringCalculator.getRadius(i + 1)) / 2)
           .attr('text-anchor', 'middle')
-          .text(ring.name())
+          .text(desc)
       }
     })
   }
@@ -131,7 +148,25 @@ const Radar = function (size, radar) {
 
   function addRing (ring, order) {
     var table = d3.select('.quadrant-table.' + order)
-    table.append('h3').text(ring)
+    var desc = ''
+    switch (ring) {
+      case '1':
+        desc = 'Adopt'
+        break
+      case '2':
+        desc = 'Trial'
+        break
+      case '3':
+        desc = 'Assess'
+        break
+      case '4':
+        desc = 'Hold'
+        break
+      default:
+        break
+    }
+
+    table.append('h3').text(desc)
     return table.append('ul')
   }
 

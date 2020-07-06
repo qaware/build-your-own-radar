@@ -111,8 +111,8 @@ xdescribe('tr.graphing.Radar', function () {
 
       radar = new tr.models.Radar()
       spyOn(radar, 'rings').and.returnValue([
-        new tr.models.Ring('Adopt'),
-        new tr.models.Ring('Hold')
+        new tr.models.Ring(1),
+        new tr.models.Ring(4)
       ])
       radarGraph = new tr.graphing.Radar(500, radar)
       radarGraph.init()
