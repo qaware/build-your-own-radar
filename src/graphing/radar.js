@@ -516,7 +516,7 @@ const Radar = function (size, radar) {
     var w = window.innerWidth/2000
 
     var scale = 2
-    scale *= w
+    scale *= w*w
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
