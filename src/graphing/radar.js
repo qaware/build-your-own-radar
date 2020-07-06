@@ -13,9 +13,6 @@ const ANIMATION_DURATION = 1000
 const Radar = function (size, radar) {
   var svg, radarElement, quadrantButtons, buttonsGroup, header, alternativeDiv
 
-
-
-
   var tip = d3tip().attr('class', 'd3-tip').html(function (text) {
     return text
   })
@@ -513,14 +510,13 @@ const Radar = function (size, radar) {
     d3.selectAll('.quadrant-table.' + order).classed('selected', true)
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
-    var w = window.innerWidth/3000
+    var w = window.innerWidth / 3000
 
-    var scale = 2.5
+    var scale = 2
     scale *= Math.sqrt(w)
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
-
 
     var translateX = (-1 * (1 + adjustX) * size / 2 * (scale - 1)) + (-adjustX * (1 - scale / 2) * size)
     var translateY = (-1 * (1 - adjustY) * (size / 2 - 7) * (scale - 1)) - ((1 - adjustY) / 2 * (1 - scale / 2) * size)
@@ -620,9 +616,7 @@ const Radar = function (size, radar) {
       plotTexts(quadrantGroup, rings, quadrant)
       plotBlips(quadrantGroup, rings, quadrant)
     })
-
   }
-
   return self
 }
 
