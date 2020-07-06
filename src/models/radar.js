@@ -66,7 +66,13 @@ const Radar = function () {
   }
 
   self.rings = function () {
-    return ['Adopt', 'Trial', 'Assess', 'Hold']
+    return _.sortBy(_.map(_.uniqBy(allBlips(), function (blip) {
+      return blip.ring().name()
+    }), function (blip) {
+      return blip.ring()
+    }), function (ring) {
+      return ring.order()
+    })
   }
 
   self.quadrants = function () {
