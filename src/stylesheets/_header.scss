@@ -11,7 +11,6 @@ header {
   }
 
   .radar-title {
-    background-color: $blue-dark;
     background-image: url("/images/index.jpg");
     background-size: cover;
     background-position: center;
@@ -27,7 +26,8 @@ header {
       width: 75%;
       display: table-cell;
       vertical-align: middle;
-      padding-right: 10%;
+      padding-right: 7%;
+      padding-top: 4%;
 
       a {
         border-bottom: none;
@@ -42,21 +42,20 @@ header {
     .radar-title__text {
 
       display: table-cell;
-      width: 70%;
+      width: 77%;
       margin-left: auto;
 
       text-align: left;
-      padding-top: 3%;
+      padding-top: 5%;
       padding-left: 10%;
 
       h1 {
         color: $white;
-        font-size: 55px;
+        font-size: 35px;
         font-weight: 900;
         letter-spacing: -.04em;
         line-height: 0.8em;
         margin: 0;
-        text-transform: uppercase;
       }
     }
   }
