@@ -516,10 +516,12 @@ const Radar = function (size, radar) {
     var w = window.innerWidth/2000
 
     var scale = 2
-    scale *= Math.sqrt(w)
+    if (w > 1) scale *= Math.sqrt(w)
+    else scale += w * w * w
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
+
 
     var translateX = (-1 * (1 + adjustX) * size / 2 * (scale - 1)) + (-adjustX * (1 - scale / 2) * size)
     var translateY = (-1 * (1 - adjustY) * (size / 2 - 7) * (scale - 1)) - ((1 - adjustY) / 2 * (1 - scale / 2) * size)
