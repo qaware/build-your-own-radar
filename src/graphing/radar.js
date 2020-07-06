@@ -435,7 +435,7 @@ const Radar = function (size, radar) {
       .append('div')
       .attr('class', 'radar-title__text')
       .append('h1')
-      .text(document.title)
+      .text('QAware Technologie-Radar')
       .style('cursor', 'pointer')
       .on('click', redrawFullRadar)
 
