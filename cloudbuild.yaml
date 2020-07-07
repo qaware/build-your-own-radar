@@ -11,4 +11,4 @@ steps:
     args: ['functions','deploy','get-source-as-csv','--region','europe-west1','--source','./function-source','--trigger-http','--allow-unauthenticated']
 
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions','deploy','get-source-as-csv','--region','europe-west1','--source','./function-upload','--trigger-http','--allow-unauthenticated']
+    args: ['functions','deploy','upload-CSV-to-source','--region','europe-west1','--source','./function-upload','--trigger-http','--allow-unauthenticated']
