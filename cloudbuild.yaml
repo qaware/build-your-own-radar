@@ -6,3 +6,11 @@ steps:
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['run', 'deploy', 'techradar', '--image', 'gcr.io/$PROJECT_ID/techradar', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - functions
+      - deploy
+      - getSourceAsCsv
+      - --source=.
+      - --trigger-http
