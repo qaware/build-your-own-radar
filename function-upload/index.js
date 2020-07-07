@@ -27,10 +27,10 @@ exports.uploadCSV = functions.https.onRequest((request, response) => {
   const db = admin.firestore()
   var keys = Object.keys(jsondata)
   var version = db.collection('version').doc('currentVersion')
-  const res = await version.update({
+  const res = version.update({
     version: admin.firestore.FieldValue.increment(1)
-  });
-  for (var i = 0,length = keys.length; i < length; i++) {
+  })
+  for (var i = 0, length = keys.length; i < length; i++) {
     db.collection('radar-data:' + res).add(keys[i])
   }
   return response.status(200)
