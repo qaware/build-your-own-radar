@@ -1,6 +1,6 @@
 /* eslint no-constant-condition: "off" */
 
-var url = 'https://europe-west1-qaware-techradar.cloudfunctions.net/GetSource'
+var url = 'https://europe-west1-qaware-techradar.cloudfunctions.net/get-source-as-csv'
 
 const d3 = require('d3')
 const Tabletop = require('tabletop')
