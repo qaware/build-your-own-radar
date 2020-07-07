@@ -148,25 +148,7 @@ const Radar = function (size, radar) {
 
   function addRing (ring, order) {
     var table = d3.select('.quadrant-table.' + order)
-    var desc = ''
-    switch (ring) {
-      case '1':
-        desc = 'Adopt'
-        break
-      case '2':
-        desc = 'Trial'
-        break
-      case '3':
-        desc = 'Assess'
-        break
-      case '4':
-        desc = 'Hold'
-        break
-      default:
-        break
-    }
-
-    table.append('h3').text(desc)
+    table.append('h3').text(ring)
     return table.append('ul')
   }
 
