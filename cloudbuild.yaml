@@ -8,11 +8,4 @@ steps:
     args: ['run', 'deploy', 'techradar', '--image', 'gcr.io/$PROJECT_ID/techradar', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
 
   - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      - functions
-      - deploy
-      - GetSource
-      - --region=eu-west1
-      - --source=./function-source
-      - --trigger-http
-      - --allow-unauthenticated
+    args: ['functions','deploy','GetSource','--region','europe-west1','--source','./function-source','--trigger-http','--allow-unauthenticated']
