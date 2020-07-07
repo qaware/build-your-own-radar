@@ -5,7 +5,7 @@ steps:
            "--destination=gcr.io/qaware-techradar/techradar:latest"]
 
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['run', 'deploy', 'techradar', '--image', 'gcr.io/$PROJECT_ID/techradar', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
+    args: ['run', 'deploy', 'techradar', '--image', 'gcr.io/$PROJECT_ID/techradar', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated','service-account','service-560486153837@gcp-sa-cloudbuild.iam.gserviceaccount.com']
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['functions','deploy','GetSource','--region','europe-west1','--source','./function-source','--trigger-http','--allow-unauthenticated']
