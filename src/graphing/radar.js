@@ -7,6 +7,7 @@ const RingCalculator = require('../util/ringCalculator')
 const QueryParams = require('../util/queryParamProcessor')
 const AutoComplete = require('../util/autoComplete')
 
+
 const MIN_BLIP_WIDTH = 12
 const ANIMATION_DURATION = 1000
 
