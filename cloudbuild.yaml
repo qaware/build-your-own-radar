@@ -12,5 +12,5 @@ steps:
       - functions
       - deploy
       - getSourceAsCsv
-      - --source=.
+      - --source=./function-source
       - --trigger-http
