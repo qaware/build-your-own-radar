@@ -10,6 +10,8 @@ const AutoComplete = require('../util/autoComplete')
 const MIN_BLIP_WIDTH = 12
 const ANIMATION_DURATION = 1000
 
+const ringOrder = ['Adopt', 'Trial', 'Assess', 'Hold']
+
 const Radar = function (size, radar) {
   var svg, radarElement, quadrantButtons, buttonsGroup, header, alternativeDiv
 
@@ -88,21 +90,10 @@ const Radar = function (size, radar) {
   function plotTexts (quadrantGroup, rings, quadrant) {
     rings.forEach(function (ring, i) {
       var desc = ''
-      switch (ring.name()) {
-        case '1':
-          desc = 'Adopt'
-          break
-        case '2':
-          desc = 'Trial'
-          break
-        case '3':
-          desc = 'Assess'
-          break
-        case '4':
-          desc = 'Hold'
-          break
-        default:
-          break
+      for (var j = 0; j < ringOrder.length; j++) {
+        if ('' + (j + 1) === ring.name()) {
+          desc = ringOrder[j]
+        }
       }
       if (quadrant.order === 'first' || quadrant.order === 'fourth') {
         quadrantGroup.append('text')
