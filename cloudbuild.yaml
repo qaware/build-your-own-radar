@@ -11,6 +11,6 @@ steps:
     args:
       - functions
       - deploy
-      - getSource
+      - GetSource
       - --source=./function-source
       - --trigger-http
