@@ -12,7 +12,7 @@ steps:
       - functions
       - deploy
       - GetSource
+      - --region=eu-west1
       - --source=./function-source
       - --trigger-http
-      - --region=eu-west1
       - --allow-unauthenticated
