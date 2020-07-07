@@ -3,7 +3,7 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 const { Parser } = require("json2csv");
 var fields = ['name','quadrant','ring','isNew','description']
-exports.csvJsonReport = functions.https.onRequest((request, response) => {
+exports.getSourceAsCsv = functions.https.onRequest((request, response) => {
     if (request.method === 'OPTIONS') {
     // Send response to OPTIONS requests
     response.set('Access-Control-Allow-Methods', 'GET');
@@ -14,7 +14,7 @@ exports.csvJsonReport = functions.https.onRequest((request, response) => {
     response.set('Access-Control-Allow-Origin', '*');
     var jsondata = [];
     const db = admin.firestore();
-    const dBData = db.collection("RadarDaten").orderBy("ring", "asc");
+    const dBData = db.collection("radar-data").orderBy("ring", "asc");
     
     return dBData.get().then((querySnapshot) => {
         querySnapshot.forEach(doc => {

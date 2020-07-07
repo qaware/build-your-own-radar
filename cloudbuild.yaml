@@ -11,6 +11,6 @@ steps:
     args:
       - functions
       - deploy
-      - getSourceAsCsv
+      - getSource
       - --source=./function-source
       - --trigger-http
