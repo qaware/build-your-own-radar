@@ -1,5 +1,5 @@
 {
-  "name": "techradar",
+  "name": "get-source-as-csv",
   
   "dependencies": {
     "firebase-admin": "~8.13.0",
