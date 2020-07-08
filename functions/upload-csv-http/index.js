@@ -17,16 +17,21 @@ exports.uploadCsv = functions.https.onRequest((request, response) => {
   }
 
   const name = request.query.name || 'radar-data';
+  console.info('Open Firestore collection ' + name);
   const collection = admin.firestore().collection(name);
 
   const data = request.rawBody;
   const csv = data.toString();
 
-  var jsondata = csvtojson().fromString(csv);
+  console.info('Converting CSV to JSON.');
+  csvtojson({ delimiter: [';', ','] }).fromString(csv).then((jsondata) => {
+    console.info('Adding radar data to Firestore collection ' + name);
+    jsondata.forEach(function (item) {
+      collection.add(item).catch(function (error) {
+        console.error('Error adding radar data.', error)
+      });
+    });
+  });
 
-  for (var item in jsondata) {
-    collection.add(item);
-  }
-
-  return response.status(201).end();
+  return response.status(202).end();
 });
