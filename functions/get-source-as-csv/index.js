@@ -3,7 +3,7 @@ const admin = require('firebase-admin')
 admin.initializeApp(functions.config().firebase)
 const { Parser } = require('json2csv')
 var fields = ['name', 'quadrant', 'ring', 'isNew', 'description']
-exports.getSourceAsCSV = functions.https.onRequest((request, response) => {
+exports.getSourceAsCsv = functions.https.onRequest((request, response) => {
   if (request.method === 'OPTIONS') {
     // Send response to OPTIONS requests
     response.set('Access-Control-Allow-Methods', 'GET')
