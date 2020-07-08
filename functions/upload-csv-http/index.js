@@ -24,7 +24,7 @@ exports.uploadCsv = functions.https.onRequest((request, response) => {
   
   var jsondata = csvtojson().fromString(csv);
   for(var item in jsondata){
-    db.collection(name).doc().set(item);
+    db.collection(name).add(item);
   }
 
   return response.status(201).end();
