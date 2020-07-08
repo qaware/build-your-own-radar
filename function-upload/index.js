@@ -1,23 +1,22 @@
-const functions = require('firebase-functions')
-const admin = require('firebase-admin')
-admin.initializeApp(functions.config().firebase)
-const csv = require('csvtojson')
-exports.uploadSourceFromStorage = (event, context) => {
-  const db = admin.firestore()
-  console.log(event.name)
-  var data = csv().fromFile(event.name)
-  data.forEach(function (obj) {
-    db.collection(event.name.replace('.csv', '')).add({
-      isNew: obj.isNew,
-      name: obj.name,
-      description: obj.description,
-      quadrant: obj.quadrant,
-      ring: obj.ring
-    }).then(function (docRef) {
-      console.log('Document written with ID: ', docRef.id)
-    })
-      .catch(function (error) {
-        console.error('Error adding document: ', error)
-      })
-  })
-}
+const admin = require('firebase-admin');
+const { Storage } = require('@google-cloud/storage');
+const csvtojson = require('csvtojson');
+
+admin.initializeApp();
+const db = admin.firestore();
+
+exports.uploadSourceFromStorage = (event, context,callback) => {
+  const storage = new Storage();
+  const bucket = storage.bucket('techradar-versiondata');
+
+  bucket.file(event.name).download()
+    .then(data => {
+
+      // Do something with the contents constant, e.g. derive the value you want to write to Firestore
+      var jsondata = csvtojson().fromFile(data[0])
+      for(var item in jsondata){
+        db.collection(event.name.replace('.csv','')).doc().set(item);
+      }
+    });
+  return callback();
+};
