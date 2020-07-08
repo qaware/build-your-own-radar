@@ -13,8 +13,11 @@ exports.uploadSourceFromStorage = (event, context) => {
       const csv = data[0].toString()
       csvtojson({ delimiter: [';', ','] }).fromString(csv).then((jsonObj) => {
         jsonObj.forEach(function (obj) {
-          console.log(obj)
-          db.collection(event.name.replace('.csv', '')).add(obj).then(function (docRef) {
+          const version = db.collection('version').doc('currentVersion').update({
+            version: admin.firestore.FieldValue.increment(50)
+          })
+          var dbData = db.collection('radar-data' + version)
+          dbData.add(obj).then(function (docRef) {
             console.log('Document written with ID: ', docRef.id)
           })
             .catch(function (error) {
@@ -22,6 +25,5 @@ exports.uploadSourceFromStorage = (event, context) => {
             })
         })
       })
-      db.collection('version').doc('currentVersion').set({ version: event.name.replace('.csv', '') })
     })
 }
