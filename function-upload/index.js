@@ -22,7 +22,7 @@ exports.uploadCSV = functions.https.onRequest((request, response) => {
 
     request.on('end', function () {
       var post = qs.parse(body)
-      jsondata = csv().fromString(post)
+      jsondata = post // csv().fromString(post)
     })
   }
   const db = admin.firestore()
