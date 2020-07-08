@@ -1,8 +1,9 @@
-const admin = require('firebase-admin');
+const functions = require('firebase-functions')
+const admin = require('firebase-admin')
+admin.initializeApp(functions.config().firebase)
 const { Storage } = require('@google-cloud/storage');
 const csvtojson = require('csvtojson');
 
-admin.initializeApp();
 const db = admin.firestore();
 
 exports.uploadSourceFromStorage = (event, context,callback) => {
