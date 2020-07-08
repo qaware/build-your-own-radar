@@ -16,15 +16,16 @@ exports.uploadCsv = functions.https.onRequest((request, response) => {
     return response.status(415).end();
   }
 
-  const db = admin.firestore()
-  const name = request.query.name === '' ? 'radar-data' : request.query.name;
+  const name = request.query.name || 'radar-data';
+  const collection = admin.firestore().collection(name);
 
   const data = request.rawBody;
   const csv = data.toString();
-  
+
   var jsondata = csvtojson().fromString(csv);
-  for(var item in jsondata){
-    db.collection(name).add(item);
+
+  for (var item in jsondata) {
+    collection.add(item);
   }
 
   return response.status(201).end();
