@@ -13,7 +13,7 @@ steps:
 
   # call with http post https://europe-west1-qaware-techradar.cloudfunctions.net/upload-csv Authorization:"Bearer $(gcloud auth print-identity-token)"
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'upload-csv', '--entry-point', 'uploadCsv', '--runtime', 'nodejs10', '--region', 'europe-west1', '--source', './functions/upload-csv', '--trigger-http']
+    args: ['functions', 'deploy', 'upload-csv', '--entry-point', 'uploadCsv', '--runtime', 'nodejs10', '--region', 'europe-west1', '--source', './functions/upload-csv-http', '--trigger-http']
   
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['functions', 'deploy', 'get-source-from-storage', '--region', 'europe-west1', '--source', './functions/upload-csv-storage']
