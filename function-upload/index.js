@@ -25,7 +25,7 @@ exports.uploadCSV = functions.https.onRequest((request, response) => {
     request.on('end', function () {
       jsondata = parse(body, { columns: true });
     })
-  }
+  }else return response.status(412)
   const db = admin.firestore()
   const batchCommits = []
   let batch = db.batch()
@@ -36,14 +36,14 @@ exports.uploadCSV = functions.https.onRequest((request, response) => {
       num = snapshot.data().version + 1
       version.set({ version: num }, { merge: true })
     })
-    batch.set(version, record);
+    batch.set(version, record)
     if ((i + 1) % 500 === 0) {
-      console.log(`Writing record ${i + 1}`);
-      batchCommits.push(batch.commit());
-      batch = db.batch();
+      console.log(`Writing record ${i + 1}`)
+      batchCommits.push(batch.commit())
+      batch = db.batch()
     }
-  }
-  batchCommits.push(batch.commit());
+  })
+  batchCommits.push(batch.commit())
 
   return response.status(200)
 })
