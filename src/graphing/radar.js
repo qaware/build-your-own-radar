@@ -191,16 +191,21 @@ const Radar = function (size, radar) {
 
       minRadius = ringCalculator.getRadius(i)
       maxRadius = ringCalculator.getRadius(i + 1)
-
-      var sumRing = ring.name().split('').reduce(function (p, c) {
+      var desc = ''
+      for (var j = 0; j < ringOrder.length; j++) {
+        if ('' + (j + 1) === ring.name()) {
+          desc = ringOrder[j]
+        }
+      }
+      var sumRing = desc.split('').reduce(function (p, c) {
         return p + c.charCodeAt(0)
       }, 0)
       var sumQuadrant = quadrant.name().split('').reduce(function (p, c) {
         return p + c.charCodeAt(0)
       }, 0)
-      chance = new Chance(Math.PI * sumRing * ring.name().length * sumQuadrant * quadrant.name().length)
+      chance = new Chance(Math.PI * sumRing * desc.length * sumQuadrant * quadrant.name().length)
 
-      var ringList = addRing(ring.name(), order)
+      var ringList = addRing(desc, order)
       var allBlipCoordinatesInRing = []
 
       ringBlips.forEach(function (blip) {
