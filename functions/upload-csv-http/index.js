@@ -26,12 +26,14 @@ exports.uploadCsv = functions.https.onRequest((request, response) => {
   console.info('Converting CSV to JSON.');
   csvtojson({ delimiter: [';', ','] }).fromString(csv).then((jsondata) => {
     console.info('Adding radar data to Firestore collection ' + name);
+    
     jsondata.forEach(function (item) {
       collection.add(item).catch(function (error) {
         console.error('Error adding radar data.', error)
       });
     });
+
+    return response.status(202).end();
   });
 
-  return response.status(202).end();
 });
