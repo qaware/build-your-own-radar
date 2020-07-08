@@ -3,6 +3,8 @@ const admin = require('firebase-admin')
 admin.initializeApp(functions.config().firebase)
 var qs = require('querystring')
 const csv = require('csvtojson')
+const { promisify } = require('util')
+const parse = promisify(require('csv-parse'))
 exports.uploadCSV = functions.https.onRequest((request, response) => {
   response.set('Access-Control-Allow-Origin', '*')
   var jsondata = []
@@ -21,20 +23,27 @@ exports.uploadCSV = functions.https.onRequest((request, response) => {
     })
 
     request.on('end', function () {
-      var post = qs.parse(body)
-      jsondata = post // csv().fromString(post)
+      jsondata = parse(body, { columns: true });
     })
   }
   const db = admin.firestore()
-  var keys = Object.keys(jsondata)
-  const version = db.doc('version/currentVersion')
-  var num = 0
-  version.get().then((snapshot) => {
-    num = snapshot.data().version + 1
-    version.set({ version: num }, { merge: true })
-  })
-  for (var i = 0, length = keys.length; i < length; i++) {
-    db.collection('radar-data:' + num).add(keys[i])
+  const batchCommits = []
+  let batch = db.batch()
+  jsondata.forEach((record, i) => {
+    const version = db.doc('version/currentVersion')
+    var num = 0
+    version.get().then((snapshot) => {
+      num = snapshot.data().version + 1
+      version.set({ version: num }, { merge: true })
+    })
+    batch.set(version, record);
+    if ((i + 1) % 500 === 0) {
+      console.log(`Writing record ${i + 1}`);
+      batchCommits.push(batch.commit());
+      batch = db.batch();
+    }
   }
+  batchCommits.push(batch.commit());
+
   return response.status(200)
 })
