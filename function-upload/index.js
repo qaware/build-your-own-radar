@@ -4,8 +4,8 @@ admin.initializeApp(functions.config().firebase)
 const csv = require('csvtojson')
 exports.uploadSourceFromStorage = (event, context) => {
   const db = admin.firestore()
+  console.log(event.data)
   var data = csv().fromFile(event.data.name)
-  console.log(data)
   data.forEach(function (obj) {
     db.collection(event.data.name.replace('.csv', '')).add({
       isNew: obj.isNew,
