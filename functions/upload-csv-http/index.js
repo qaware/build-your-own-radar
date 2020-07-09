@@ -19,27 +19,26 @@ exports.uploadCsv = functions.https.onRequest((request, response) => {
   const name = request.query.name || 'radar-data';
   console.info('Open Firestore collection ' + name);
   const collection = admin.firestore().collection(name);
+  const data = request.rawBody;
+  const csv = data.toString();
   collection.listDocuments().then(val => {
     val.map((val) => {
       val.delete()
     })
-  })
-  const data = request.rawBody;
-  const csv = data.toString();
+  }).then(() => {
+    console.info('Converting CSV to JSON.');
+    csvtojson({ delimiter: [';', ','] }).fromString(csv).then((jsondata) => {
+      console.info('Adding radar data to Firestore collection ' + name);
 
-  console.info('Converting CSV to JSON.');
-  csvtojson({ delimiter: [';', ','] }).fromString(csv).then((jsondata) => {
-    console.info('Adding radar data to Firestore collection ' + name);
-    
-    jsondata.forEach(function (item) {
-      collection.add(item).catch(function (error) {
-        console.error('Error adding radar data.', error)
-      });
-    }).then(() =>{
-      admin.firestore().collection('version').doc('currentVersion').set({ version: name })
+      jsondata.forEach(function (item) {
+        collection.add(item).catch(function (error) {
+          console.error('Error adding radar data.', error)
+        });
+      })
+
     });
-
+  }).then(() => {
+    admin.firestore().collection('version').doc('currentVersion').set({ version: name })
     return response.status(202).end();
   });
-
 });

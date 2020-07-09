@@ -16,7 +16,7 @@ exports.getSourceAsCsv = functions.https.onRequest((request, response) => {
   const db = admin.firestore()
   db.collection('version').doc('currentVersion').get().then( (ver) =>{
     var version = request.query.name || ver.data().version
-    const dBData = db.collection(version).orderBy('ring', 'asc')
+    const dBData = db.collection(version)
 
     return dBData.get().then((querySnapshot) => {
       querySnapshot.forEach(doc => {
