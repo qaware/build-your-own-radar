@@ -17,7 +17,7 @@ exports.getSourceAsCsv = functions.https.onRequest((request, response) => {
   db.collection('version').doc('currentVersion').get().data().version.then( (ver) =>{
     var version = request.query.name || ver
     console.log(version)
-    const dBData = db.collection('radar-data' + version).orderBy('ring', 'asc')
+    const dBData = db.collection(version).orderBy('ring', 'asc')
 
     return dBData.get().then((querySnapshot) => {
       querySnapshot.forEach(doc => {
