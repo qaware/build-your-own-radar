@@ -10,6 +10,7 @@ provider "google" {
 }
 
 resource "google_cloudbuild_trigger" "github-trigger" {
+  name = "techradar-github-trigger"
   provider = google-beta
   filename = "cloudbuild.yaml"
   github {
