@@ -19,7 +19,11 @@ exports.uploadCsv = functions.https.onRequest((request, response) => {
   const name = request.query.name || 'radar-data';
   console.info('Open Firestore collection ' + name);
   const collection = admin.firestore().collection(name);
-
+  collection.listDocuments().then(val => {
+    val.map((val) => {
+      val.delete()
+    })
+  })
   const data = request.rawBody;
   const csv = data.toString();
 

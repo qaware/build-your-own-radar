@@ -96,6 +96,7 @@ const Radar = function (size, radar) {
           desc = ringOrder[j]
         }
       }
+      if (desc === '') desc = ring.name()
       if (quadrant.order === 'first' || quadrant.order === 'fourth') {
         quadrantGroup.append('text')
           .attr('class', 'line-text')
@@ -197,6 +198,7 @@ const Radar = function (size, radar) {
           desc = ringOrder[j]
         }
       }
+      if (desc === '') desc = ring.name()
       var sumRing = desc.split('').reduce(function (p, c) {
         return p + c.charCodeAt(0)
       }, 0)
