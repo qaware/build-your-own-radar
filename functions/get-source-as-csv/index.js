@@ -14,23 +14,25 @@ exports.getSourceAsCsv = functions.https.onRequest((request, response) => {
   response.set('Access-Control-Allow-Origin', '*')
   var jsondata = []
   const db = admin.firestore()
-  const version = db.collection('version').doc('currentVersion').get().data().version
-  console.log(version)
-  const dBData = db.collection('radar-data' + version).orderBy('ring', 'asc')
+  db.collection('version').doc('currentVersion').get().data().version.then( (ver) =>{
+    var version = request.query.name || ver
+    console.log(version)
+    const dBData = db.collection('radar-data' + version).orderBy('ring', 'asc')
 
-  return dBData.get().then((querySnapshot) => {
-    querySnapshot.forEach(doc => {
-      jsondata.push(doc.data())
+    return dBData.get().then((querySnapshot) => {
+      querySnapshot.forEach(doc => {
+        jsondata.push(doc.data())
+      })
+      var json2csv = new Parser({ delimiter: ';', fields: fields })
+      const csv = json2csv.parse(jsondata)
+      response.setHeader(
+        'Content-disposition',
+        'attachment; filename=files.csv'// file name.csv
+      )
+      response.set('Content-Type', 'text/csv')
+      return response.status(200).send(csv)
+    }).catch((err) => {
+      return console.log(err)
     })
-    var json2csv = new Parser({ delimiter: ';', fields: fields })
-    const csv = json2csv.parse(jsondata)
-    response.setHeader(
-      'Content-disposition',
-      'attachment; filename=files.csv'// file name.csv
-    )
-    response.set('Content-Type', 'text/csv')
-    return response.status(200).send(csv)
-  }).catch((err) => {
-    return console.log(err)
   })
 })

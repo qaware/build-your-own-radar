@@ -7,16 +7,23 @@ const db = admin.firestore()
 exports.uploadSourceFromStorage = (event, context) => {
   const storage = new Storage()
   const bucket = storage.bucket('techradar-versiondata')
-
+  var dbData = db.collection(event.name.replace('.csv', ''))
+  var csvData;
   bucket.file(event.name).download()
-    .then(data => {
-      const csv = data[0].toString()
-      csvtojson({ delimiter: [';', ','] }).fromString(csv).then((jsonObj) => {
-        const version = await db.collection('version').doc('currentVersion').update({
-          version: admin.firestore.FieldValue.increment(1)
+    .then((data) => {
+        csvData = data
+        dbData.listDocuments().then(val => {
+          val.map((val) => {
+            val.delete()
+          })
         })
+      }
+    ).then(() => {
+      const csv = csvData[0].toString()
+      csvtojson({ delimiter: [';', ','] }).fromString(csv).then((jsonObj) => {
+
         jsonObj.forEach(function (obj) {
-          var dbData = db.collection('radar-data' + version)
+
           dbData.add(obj).then(function (docRef) {
             console.log('Document written with ID: ', docRef.id)
           })
@@ -25,6 +32,10 @@ exports.uploadSourceFromStorage = (event, context) => {
             })
         })
       })
+
+    }).then(() =>
+      db.collection('version').doc('currentVersion').set({ version: event.name.replace('.csv', '') })
+    ).then(() => {
+      bucket.file(event.name).delete()
     })
-  bucket.file(event.name).delete()
 }
