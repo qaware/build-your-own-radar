@@ -9,14 +9,13 @@ exports.getSourceAsCsv = functions.https.onRequest((request, response) => {
     response.set('Access-Control-Allow-Methods', 'GET')
     response.set('Access-Control-Allow-Headers', 'Authorization')
     response.set('Access-Control-Max-Age', '3600')
-    response.status(204).send('')
+    return response.status(204).send('')
   }
   response.set('Access-Control-Allow-Origin', '*')
   var jsondata = []
   const db = admin.firestore()
-  db.collection('version').doc('currentVersion').get().data().version.then( (ver) =>{
-    var version = request.query.name || ver
-    console.log(version)
+  db.collection('version').doc('currentVersion').get().then( (ver) =>{
+    var version = request.query.name || ver.data().version
     const dBData = db.collection(version).orderBy('ring', 'asc')
 
     return dBData.get().then((querySnapshot) => {

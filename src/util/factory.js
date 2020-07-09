@@ -1,6 +1,7 @@
 /* eslint no-constant-condition: "off" */
 
 var url = 'https://europe-west1-qaware-techradar.cloudfunctions.net/get-source-as-csv'
+var url = 'https://europe-west1-qaware-techradar.cloudfunctions.net/get-source-as-csv'
 
 const d3 = require('d3')
 const Tabletop = require('tabletop')
@@ -29,7 +30,7 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   document.title = 'QAware Technologieradar'
   d3.selectAll('.loading').remove()
 
-  var rings = _.map(_.uniqBy(blips, 'ring'), 'ring')
+  var rings = ['Adopt', 'Trial', 'Assess', 'Hold']
   var ringMap = {}
   var maxRings = 4
 
