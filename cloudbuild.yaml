@@ -16,4 +16,4 @@ steps:
     args: ['functions', 'deploy', 'upload-csv', '--entry-point', 'uploadCsv', '--runtime', 'nodejs10', '--region', 'europe-west1', '--source', './functions/upload-csv-http', '--trigger-http', '--memory', '512', '--timeout', '120']
   
   - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'upload-csv-from-storage', '--entry-point', 'getSourceAsCsv', '--region', 'europe-west1', '--source', './functions/upload-csv-storage', '--runtime', 'nodejs10', '--memory', '512', '--timeout', '120','trigger-bucket','techradar-versiondata']
+    args: ['functions', 'deploy', 'upload-csv-from-storage', '--entry-point', 'getSourceAsCsv', '--region', 'europe-west1', '--source', './functions/upload-csv-storage', '--runtime', 'nodejs10', '--memory', '512', '--timeout', '120','--trigger-bucket','techradar-versiondata']

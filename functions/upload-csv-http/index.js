@@ -35,6 +35,8 @@ exports.uploadCsv = functions.https.onRequest((request, response) => {
       collection.add(item).catch(function (error) {
         console.error('Error adding radar data.', error)
       });
+    }).then(() =>{
+      admin.firestore().collection('version').doc('currentVersion').set({ version: name })
     });
 
     return response.status(202).end();
