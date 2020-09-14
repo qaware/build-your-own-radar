@@ -4,13 +4,11 @@ const Chance = require('chance')
 const _ = require('lodash/core')
 
 const RingCalculator = require('../util/ringCalculator')
-const AutoComplete = require('../util/autoComplete')
-
 const MIN_BLIP_WIDTH = 12
 const ANIMATION_DURATION = 1000
 
 const Radar = function (size, radar) {
-  let svg, radarElement, buttonsGroup, header, alternativeDiv
+  let svg, radarElement, header
 
   const tip = d3tip().attr('class', 'd3-tip').html(function (text) {
     return text
@@ -393,32 +391,6 @@ const Radar = function (size, radar) {
 
     d3.selectAll('.quadrant-group')
       .style('pointer-events', 'auto')
-  }
-
-  function searchBlip (_e, ui) {
-    const { blip, quadrant } = ui.item
-    const isQuadrantSelected = d3.select('div.button.' + quadrant.order).classed('selected')
-    selectQuadrant.bind({}, quadrant.order, quadrant.startAngle)()
-    const selectedDesc = d3.select('#blip-description-' + blip.number())
-    d3.select('.blip-item-description.expanded').node() !== selectedDesc.node() &&
-    d3.select('.blip-item-description.expanded').classed('expanded', false)
-    selectedDesc.classed('expanded', true)
-
-    d3.selectAll('g.blip-link').attr('opacity', 0.3)
-    const group = d3.select('#blip-link-' + blip.number())
-    group.attr('opacity', 1.0)
-    d3.selectAll('.blip-list-item').classed('highlight', false)
-    d3.select('#blip-list-item-' + blip.number()).classed('highlight', true)
-    if (isQuadrantSelected) {
-      tip.show(blip.name(), group.node())
-    } else {
-      // need to account for the animation time associated with selecting a quadrant
-      tip.hide()
-
-      setTimeout(function () {
-        tip.show(blip.name(), group.node())
-      }, ANIMATION_DURATION)
-    }
   }
 
   function plotRadarHeader (quadrants) {

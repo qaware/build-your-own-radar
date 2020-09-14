@@ -11,88 +11,6 @@
 body {
   font: 18px 'Open Sans';
   -webkit-font-smoothing: antialiased;
-
-  .search-box {
-    margin-top: 100px;
-    margin-left: 20%;
-    margin-right: 10%;
-    min-width: 100%;
-  }
-  .button {
-    font-size: $baseFont;
-    text-transform: capitalize;
-    margin-right: 20px;
-    border-radius: 2px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: all .2s ease-out;
-
-    background-color: $black;
-    color: $white;
-
-    &.no-capitalize {
-      text-transform: none;
-    }
-
-    &:hover, &.selected {
-
-      transform: translate(0, -2px);
-      opacity: .85;
-    }
-  }
-
-  #alternative-buttons {
-    margin-bottom: 0;
-
-    .highlight {
-      border-bottom: none;
-      font-weight: bold;
-    }
-
-    p {
-      font-size: 16px;
-      font-weight: 700;
-      margin-top: 0;
-      margin-bottom: 10px;
-    }
-
-    .multiple-sheet-button {
-      margin-right: 10px;
-    }
-
-    .search-radar {
-      border: 1px solid #aaa;
-      background-color: inherit;
-      background-image: url("/images/search-logo-2x.svg");
-      background-repeat: no-repeat;
-      background-position: 10px;
-    }
-
-    input {
-      padding-left: 35px;
-      width: 275px;
-    }
-  }
-}
-
-.ui-autocomplete {
-  width: 275px !important;
-
-  .ui-autocomplete-quadrant {
-    font-size: 14px;
-    font-weight: 600;
-    padding: 5px;
-  }
-
-  .ui-menu-item {
-    white-space: normal;
-    font-size: 14px;
-    font-weight: 400;
-
-    .ui-menu-item-wrapper {
-      padding: 0 10px;
-    }
-  }
 }
 
 @media print {
@@ -247,7 +165,7 @@ body {
     position: relative;
 
     svg#radar-plot {
-      margin: 15% auto;
+      margin: 10% auto;
       transition: all 1s ease;
       position: absolute;
       left: 0;

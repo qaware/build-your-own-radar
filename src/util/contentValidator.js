@@ -9,7 +9,7 @@ const MalformedDataError = require('../../src/exceptions/malformedDataError')
 const ExceptionMessages = require('./exceptionMessages')
 
 const ContentValidator = function (columnNames) {
-  var self = {}
+  const self = {}
   columnNames = columnNames.map(function (columnName) {
     return columnName.trim()
   })

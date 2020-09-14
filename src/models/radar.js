@@ -8,19 +8,19 @@ const _ = {
 }
 
 const Radar = function () {
-  var self, quadrants, blipNumber, addingQuadrant, alternatives, currentSheetName
+  let blipNumber, addingQuadrant, currentSheetName
 
   blipNumber = 0
   addingQuadrant = 0
-  quadrants = [
+  const quadrants = [
     { order: 'first', startAngle: 90 },
     { order: 'second', startAngle: 0 },
     { order: 'third', startAngle: -90 },
     { order: 'fourth', startAngle: -180 }
   ]
-  alternatives = []
+  const alternatives = []
   currentSheetName = ''
-  self = {}
+  const self = {}
 
   function setNumbers (blips) {
     blips.forEach(function (blip) {

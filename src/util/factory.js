@@ -24,9 +24,9 @@ const plotRadar = function (title, blips) {
   document.title = 'QAware Technologieradar'
   d3.selectAll('.loading').remove()
 
-  var rings = ['Adopt', 'Trial', 'Assess', 'Hold']
-  var ringMap = {}
-  var maxRings = 4
+  const rings = ['Adopt', 'Trial', 'Assess', 'Hold']
+  const ringMap = {}
+  const maxRings = 4
 
   _.each(rings, function (ringName, i) {
     if (i === maxRings) {
@@ -35,7 +35,7 @@ const plotRadar = function (title, blips) {
     ringMap[ringName] = new Ring(ringName, i)
   })
 
-  var quadrants = {}
+  const quadrants = {}
   _.each(blips, function (blip) {
     if (!quadrants[blip.quadrant]) {
       quadrants[blip.quadrant] = new Quadrant(_.capitalize(blip.quadrant))
@@ -43,24 +43,24 @@ const plotRadar = function (title, blips) {
     quadrants[blip.quadrant].add(new Blip(blip.name, ringMap[blip.ring], blip.isNew.toLowerCase() === 'true', blip.topic, blip.description))
   })
 
-  var radar = new Radar()
+  const radar = new Radar()
   _.each(quadrants, function (quadrant) {
     radar.addQuadrant(quadrant)
   })
 
-  var size = (window.innerHeight - 133) < 620 ? 620 : window.innerHeight - 133
+  const size = (window.innerHeight - 133) < 620 ? 620 : window.innerHeight - 133
 
   new GraphingRadar(size, radar).init().plot()
 }
 
 const CSVDocument = function (url) {
-  var self = {}
+  const self = {}
 
   self.build = function () {
     d3.csv(url).then(createBlips)
   }
 
-  var createBlips = function (data) {
+  const createBlips = function (data) {
     try {
       var columnNames = data.columns
       delete data.columns
@@ -83,22 +83,21 @@ const CSVDocument = function (url) {
 }
 
 const FileName = function (url) {
-  var search = /([^\\/]+)$/
-  var match = search.exec(decodeURIComponent(url.replace(/\+/g, ' ')))
+  const search = /([^\\/]+)$/
+  const match = search.exec(decodeURIComponent(url.replace(/\+/g, ' ')))
   if (match != null) {
-    var str = match[1]
-    return str
+    return match[1]
   }
   return url
 }
 
 const GoogleSheetInput = function () {
-  var self = {}
-  var sheet
+  const self = {}
+  let sheet
 
   self.build = function () {
-    var queryString = ['sheetId=' + url, '=' + url]
-    var queryParams = queryString ? QueryParams(queryString[0]) : {}
+    const queryString = ['sheetId=' + url, '=' + url]
+    const queryParams = queryString ? QueryParams(queryString[0]) : {}
     sheet = CSVDocument(queryParams.sheetId)
     sheet.init().build()
   }
@@ -121,7 +120,7 @@ function plotLoading (content) {
 
   plotLogo(content)
 
-  var bannerText = '<h1>Building your radar...</h1><p>Your Technology Radar will be available in just a few seconds</p>'
+  const bannerText = '<h1>Building your radar...</h1><p>Your Technology Radar will be available in just a few seconds</p>'
   plotBanner(content, bannerText)
 }
 
@@ -138,23 +137,23 @@ function plotBanner (content, text) {
 }
 
 function plotErrorMessage (exception) {
-  var message = 'Oops! It seems like there are some problems with loading your data. '
+  let message = 'Oops! It seems like there are some problems with loading your data. '
 
-  var content = d3.select('body')
+  const content = d3.select('body')
     .append('div')
     .attr('class', 'input-sheet')
   setDocumentTitle()
 
   plotLogo(content)
 
-  var bannerText = '<div><h1>Build your own radar</h1><p>Once you\'ve <a href ="https://www.thoughtworks.com/radar/byor">created your Radar</a>, you can use this service' +
+  const bannerText = '<div><h1>Build your own radar</h1><p>Once you\'ve <a href ="https://www.thoughtworks.com/radar/byor">created your Radar</a>, you can use this service' +
     ' to generate an <br />interactive version of your Technology Radar. Not sure how? <a href ="https://www.thoughtworks.com/radar/how-to-byor">Read this first.</a></p></div>'
 
   plotBanner(content, bannerText)
 
   d3.selectAll('.loading').remove()
-  message = "Oops! We can't find the Google Sheet you've entered"
-  var faqMessage = 'Please check <a href="https://www.thoughtworks.com/radar/how-to-byor">FAQs</a> for possible solutions.'
+  message = 'Oops! We can\'t find the Google Sheet you\'ve entered'
+  const faqMessage = 'Please check <a href="https://www.thoughtworks.com/radar/how-to-byor">FAQs</a> for possible solutions.'
   if (exception instanceof MalformedDataError) {
     message = message.concat(exception.message)
   } else if (exception instanceof SheetNotFoundError) {
@@ -164,16 +163,16 @@ function plotErrorMessage (exception) {
   }
 
   const container = content.append('div').attr('class', 'error-container')
-  var errorContainer = container.append('div')
+  const errorContainer = container.append('div')
     .attr('class', 'error-container__message')
   errorContainer.append('div').append('p')
     .html(message)
   errorContainer.append('div').append('p')
     .html(faqMessage)
 
-  var homePageURL = window.location.protocol + '//' + window.location.hostname
+  let homePageURL = window.location.protocol + '//' + window.location.hostname
   homePageURL += (window.location.port === '' ? '' : ':' + window.location.port)
-  var homePage = '<a href=' + homePageURL + '>GO BACK</a>'
+  const homePage = '<a href=' + homePageURL + '>GO BACK</a>'
 
   errorContainer.append('div').append('p')
     .html(homePage)
