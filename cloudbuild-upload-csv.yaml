@@ -1,0 +1,3 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['functions', 'deploy', 'upload-csv-from-storage', '--entry-point', 'uploadSourceFromStorage', '--region', 'europe-west1', '--source', './functions/upload-csv-storage', '--runtime', 'nodejs10', '--memory', '512', '--timeout', '120','--trigger-bucket','techradar-versiondata']

@@ -6,14 +6,3 @@ steps:
 
   - name: 'gcr.io/cloud-builders/gcloud'
     args: ['run', 'deploy', 'techradar', '--image', 'gcr.io/$PROJECT_ID/techradar', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
-
-  # call with http get https://europe-west1-qaware-techradar.cloudfunctions.net/get-source-as-csv
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'get-source-as-csv', '--entry-point', 'getSourceAsCsv', '--runtime', 'nodejs10', '--region', 'europe-west1', '--source', './functions/get-source-as-csv', '--trigger-http', '--allow-unauthenticated']
-
-  # call with http post https://europe-west1-qaware-techradar.cloudfunctions.net/upload-csv Authorization:"Bearer $(gcloud auth print-identity-token)" name==radar-data
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'upload-csv', '--entry-point', 'uploadCsv', '--runtime', 'nodejs10', '--region', 'europe-west1', '--source', './functions/upload-csv-http', '--trigger-http', '--memory', '512', '--timeout', '120']
-  
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['functions', 'deploy', 'upload-csv-from-storage', '--entry-point', 'uploadSourceFromStorage', '--region', 'europe-west1', '--source', './functions/upload-csv-storage', '--runtime', 'nodejs10', '--memory', '512', '--timeout', '120','--trigger-bucket','techradar-versiondata']

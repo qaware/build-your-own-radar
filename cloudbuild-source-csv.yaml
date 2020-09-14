@@ -1,0 +1,4 @@
+steps:
+  # call with http get https://europe-west1-qaware-techradar.cloudfunctions.net/get-source-as-csv
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['functions', 'deploy', 'get-source-as-csv', '--entry-point', 'getSourceAsCsv', '--runtime', 'nodejs10', '--region', 'europe-west1', '--source', './functions/get-source-as-csv', '--trigger-http', '--allow-unauthenticated']
