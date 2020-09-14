@@ -25,18 +25,12 @@
   transition-delay: 0s;
 }
 
-#mobile-nav-dropdown {
-  height: 0;
-  overflow-y: hidden;
-}
-
 .mobile-nav li {
   font-size: .875rem;
   padding: 0;
   display: block;
   border: 0;
   font-weight: 700;
-  text-transform: uppercase;
 }
 
 .mobile-nav a {
@@ -54,7 +48,7 @@
 @media (max-width: 780px) {
   #mobile-nav-icon {
     position: relative;
-    margin: 8px auto 0;
+    margin: auto auto 0;
     border-radius: 7px;
   }
 
@@ -76,14 +70,14 @@
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    top: 0px;
+    top: 0;
   }
 
   #mobile-nav-icon-link.open #mobile-nav-icon::after {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-    top: 0px;
+    top: 0;
   }
 
   #mobile-nav-icon::before {

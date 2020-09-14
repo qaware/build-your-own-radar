@@ -338,6 +338,11 @@ const Radar = function (size, radar) {
 
   function plotRadarHeader (quadrants) {
     header = d3.select('body').insert('header', '#radar')
+    header.append('div')
+      .attr('id', 'headline')
+      .append('p')
+      .attr('id', 'headline-text')
+      .text('Technologieradar')
     const mainHeader = header.append('div')
       .attr('id', 'main-header')
     mainHeader.append('a')
@@ -347,6 +352,7 @@ const Radar = function (size, radar) {
       .attr('src', 'https://www.qaware.de/typo3conf/ext/s2_qaware_templates/Resources/Public/Images/logo-qaware.svg')
       .attr('alt', 'QAware')
       .attr('id', 'main-header-logo-img')
+
 
     const headerContainer = mainHeader.append('div')
       .attr('id', 'main-header-nav-items-container')
@@ -369,7 +375,7 @@ const Radar = function (size, radar) {
         .attr('class', 'main-nav-menu')
         .append('a')
         .attr('class', 'main-nav-menu nav-item')
-        .text(quadrant.quadrant.name())
+        .text(quadrant.quadrant.name().toUpperCase())
         .on('mouseover', mouseoverQuadrant.bind({}, quadrant.order))
         .on('mouseout', mouseoutQuadrant.bind({}, quadrant.order))
         .on('click', selectQuadrant.bind({}, quadrant.order, quadrant.startAngle))
@@ -378,6 +384,8 @@ const Radar = function (size, radar) {
     _.each([0, 1, 2, 3], function (i) {
       addButton(quadrants[i])
     })
+
+
   }
 
   function mouseoverQuadrant (order) {

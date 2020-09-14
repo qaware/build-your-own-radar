@@ -18,8 +18,6 @@
   height: 80px;
   margin-left: 20px;
   padding-left: 20px;
-  text-transform: capitalize;
-  font-size: larger;
 }
 
 #main-nav ul li a {
@@ -29,7 +27,6 @@
   font-size: 1rem;
   font-weight: 700;
   line-height: 80px;
-  text-transform: uppercase;
   color: #262424;
   transition: opacity .5s ease-in-out;
 }
@@ -71,6 +68,10 @@
   display: block;
   height: unset;
   padding-left: 0;
+}
+
+#main-nav-menu {
+  font-size: 10px;
 }
 
 #main-nav ul li ul li a {

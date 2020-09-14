@@ -42,9 +42,9 @@ header {
 
 
 #main-header {
-  max-width: 1140px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
   position: relative;
   height: 80px;
   display: flex;
@@ -59,15 +59,34 @@ header {
   width: 25%;
 }
 
+#headline {
+  width: 100%;
+  min-height: 150px;
+  margin: 0;
+  background-image: url("https://www.qaware.de/fileadmin/user_upload/Stagemoods/qaw-stage-home.png");
+}
+
+#headline-text {
+  margin: 0;
+  font-size: 60px;
+  font-weight: 900;
+  padding-top: 10%;
+  padding-left: 5%;
+  color: white;
+  float: bottom;
+}
+
 #main-header-logo-img {
   width: 168px;
   height: 37px;
 }
 
 #main-header-nav-items-container {
-  width: 75%;
+  width: 100%;
   padding-top: 20px;
   margin-top: 10px;
+  padding-left: 15%;
+  margin-left: 15%;
   float: right;
 }
 
