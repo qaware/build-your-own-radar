@@ -9,7 +9,7 @@
 @import "screen";
 
 body {
-  font: 18px 'UniversLTW02-45Light';
+  font: 18px 'Univers LT W02';
   -webkit-font-smoothing: antialiased;
 }
 
@@ -176,6 +176,7 @@ body {
         visibility: hidden;
         transition: visibility 1s ease 1s;
         color: $black;
+        font-family: "Univers Bold", sans-serif;
       }
 
       path {

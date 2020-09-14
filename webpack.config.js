@@ -75,10 +75,7 @@ module.exports = {
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: [{ loader: 'babel-loader' }] },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        use: [{ loader: 'file-loader?name=fonts/[name].[ext]&context=./src/fonts' }]
-      },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
       {
         test: /\.scss$/,
         exclude: /node_modules/,

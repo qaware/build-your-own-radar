@@ -1,7 +1,16 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "UniversLTW02-45Light";
-  src: url("//db.onlinewebfonts.com/t/535a7e380ad5392e71f55133508cddb1.eot");
-  src: url("//db.onlinewebfonts.com/t/535a7e380ad5392e71f55133508cddb1.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/535a7e380ad5392e71f55133508cddb1.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/535a7e380ad5392e71f55133508cddb1.woff") format("woff"), url("//db.onlinewebfonts.com/t/535a7e380ad5392e71f55133508cddb1.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/535a7e380ad5392e71f55133508cddb1.svg#UniversLTW02-45Light") format("svg");
+  font-family: "Univers LT W02";
+  font-style: normal;
+  font-weight: 400;
+  src: local('Univers Regular'),
+  url("../fonts/UniversCom-45Light.ttf") format("truetype")
+}
+@font-face {
+  font-family: "Univers Bold";
+  font-style: normal;
+  font-weight: 400;
+  src: local('Univers Regular'),
+  url("../fonts/UniversCom-65Bold.ttf") format("truetype")
 }
