@@ -11,7 +11,7 @@
     "end_to_end_test": "node_modules/.bin/cypress run --env host=$TEST_URL",
     "start": "node_modules/.bin/cypress open --env host=$TEST_URL"
   },
-  "author": "ThoughtWorks",
+  "author": "QAware - Jonas Rubeck",
   "repository": {
     "type": "git",
     "url": "https://github.com/thoughtworks/build-your-own-radar"
@@ -45,6 +45,7 @@
     "standard": "^14.3.1",
     "style-loader": "^1.0.1",
     "tar": ">=5.0.0",
+    "url-loader": "^4.1.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
