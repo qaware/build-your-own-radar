@@ -1,5 +1,3 @@
-/* eslint no-constant-condition: "off" */
-
 var url = 'https://europe-west1-qaware-techradar.cloudfunctions.net/get-source-as-csv'
 
 const d3 = require('d3')
@@ -22,7 +20,7 @@ const SheetNotFoundError = require('../exceptions/sheetNotFoundError')
 const ContentValidator = require('./contentValidator')
 const ExceptionMessages = require('./exceptionMessages')
 
-const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
+const plotRadar = function (title, blips) {
   document.title = 'QAware Technologieradar'
   d3.selectAll('.loading').remove()
 
@@ -49,16 +47,6 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   _.each(quadrants, function (quadrant) {
     radar.addQuadrant(quadrant)
   })
-
-  if (alternativeRadars !== undefined || true) {
-    alternativeRadars.forEach(function (sheetName) {
-      radar.addAlternative(sheetName)
-    })
-  }
-
-  if (currentRadarName !== undefined || true) {
-    radar.setCurrentSheet(currentRadarName)
-  }
 
   var size = (window.innerHeight - 133) < 620 ? 620 : window.innerHeight - 133
 
