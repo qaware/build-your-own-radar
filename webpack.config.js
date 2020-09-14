@@ -76,6 +76,10 @@ module.exports = {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: [{ loader: 'babel-loader' }] },
       {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: [{ loader: 'file-loader?name=fonts/[name].[ext]&context=./src/fonts' }]
+      },
+      {
         test: /\.scss$/,
         exclude: /node_modules/,
         use: ['style-loader', MiniCssExtractPlugin.loader, {
@@ -92,10 +96,6 @@ module.exports = {
             ]
           }
         }, 'sass-loader']
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=images/[name].[ext]'
       },
       {
         test: /\.(png|jpg|ico)$/,

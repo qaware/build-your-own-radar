@@ -9,13 +9,14 @@
 @import "screen";
 
 body {
-  font: 18px 'Open Sans';
+  font: 18px 'UniversLTW02-45Light';
   -webkit-font-smoothing: antialiased;
 }
 
 @media print {
 
   body, article {
+
     width: 100%;
     margin: 0;
     padding: 0;
@@ -165,7 +166,7 @@ body {
     position: relative;
 
     svg#radar-plot {
-      margin: 10% auto;
+      margin: 5% auto;
       transition: all 1s ease;
       position: absolute;
       left: 0;
