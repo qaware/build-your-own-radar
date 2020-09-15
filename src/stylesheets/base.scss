@@ -247,6 +247,7 @@ body {
       &.first {
         &.selected {
           float: right;
+          text-align: right;
         }
       }
 
@@ -265,13 +266,14 @@ body {
       &.fourth {
         &.selected {
           float: right;
+          text-align: right;
         }
       }
 
       &.selected {
         position: relative;
         max-height: 10000px;
-        max-width: 40%;
+        max-width: 35%;
       }
 
       ul {

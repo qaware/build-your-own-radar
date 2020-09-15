@@ -353,7 +353,7 @@ const Radar = function (size, radar) {
     d3.selectAll('.quadrant-table.' + order).classed('selected', true)
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
-    const scale = (window.innerWidth - 0.5 * size) / size
+    const scale = (window.innerWidth - 0.6 * size) / (size)
 
     const adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     const adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
@@ -365,7 +365,7 @@ const Radar = function (size, radar) {
     const translateYAll = (1 + adjustY) / 2 * size * scale / 2
 
     const moveRight = (1 + adjustX) * (0.8 * window.innerWidth - size) / 2
-    const moveLeft = (1 - adjustX) * (0.8 * window.innerWidth - size) / 2
+    const moveLeft = (1 - adjustX) * (0.8 * window.innerWidth - size) / 3.5
 
     const blipScale = 3 / 4
     const blipTranslate = (1 - blipScale) / blipScale
