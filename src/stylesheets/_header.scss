@@ -31,8 +31,7 @@ header {
 #main-header {
 
   width: 1140px;
-  margin-left: 17%;
-  margin-right: auto;
+  margin:auto;
   position: relative;
   min-height: 80px;
   display: flex;
@@ -58,7 +57,7 @@ header {
 
 #headline-text {
   max-width: 1140px;
-  margin: 0 17%;
+  margin: auto;
   font-size: 50px;
   padding-top: 450px;
   color: white;
