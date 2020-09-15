@@ -413,7 +413,7 @@ const Radar = function (size, radar) {
     d3.selectAll('.quadrant-table.' + order).classed('selected', true)
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
-    const scale = 2
+    const scale = 1.5
 
     const adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     const adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
