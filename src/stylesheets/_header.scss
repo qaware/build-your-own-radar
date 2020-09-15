@@ -33,7 +33,7 @@ header {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  height: 80px;
+  min-height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -72,10 +72,9 @@ header {
 
 #main-header-nav-items-container {
   width: 100%;
-  padding-top: 2.5%;
-  margin-top: 2.5%;
-  padding-left: 5%;
-  margin-left: 5%;
+  margin-top: 0.5%;
+  padding-left: 0;
+  margin-left: auto;
   float: right;
 }
 

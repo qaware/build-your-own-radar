@@ -10,12 +10,10 @@
   float: right;
   white-space: nowrap;
   list-style: none;
-  height: 80px;
 }
 
 #main-nav li {
   display: inline-block;
-  height: 80px;
   margin-left: 20px;
   padding-left: 20px;
 }
@@ -24,7 +22,7 @@
   padding-left: 16px;
   padding-right: 16px;
   display: block;
-  font-size: 1rem;
+  font-size: 8px;
   font-weight: 700;
   line-height: 80px;
   color: #262424;
@@ -71,8 +69,8 @@
   padding-left: 0;
 }
 
-#main-nav-menu {
-  font-size: 10px;
+.main-nav-menu {
+  font-size: 16px;
 }
 
 #main-nav ul li ul li a {
@@ -86,7 +84,7 @@
 
 @media (max-width: 1140px) {
   #main-nav ul li a {
-    font-size: 0.9375rem;
+    font-size: 8px;
     display: block;
   }
 }
@@ -99,7 +97,7 @@
     line-height: 60px;
   }
   #main-nav ul li a {
-    font-size: 0.875rem;
+    font-size: 8px;
     display: block;
   }
 
