@@ -141,6 +141,7 @@ body {
         transition: visibility 1s ease 1s;
         color: $black;
         font-family: "Univers Bold", sans-serif;
+        letter-spacing: 0.05em;
       }
 
       path {
@@ -212,6 +213,7 @@ body {
           text-transform: uppercase;
           fill: $black;
           font-size: 7px;
+          letter-spacing: 0.05em;
         }
       }
     }
@@ -223,6 +225,7 @@ body {
       .quadrant-table__name {
         text-transform: uppercase;
         font-family: "Univers Bold",sans-serif;
+        letter-spacing: 0.05em;
       }
 
       max-height: 0;
@@ -235,6 +238,7 @@ body {
       h3 {
         text-transform: uppercase;
         font-family: "Univers Bold",sans-serif;
+        letter-spacing: 0.05em;
         font-size: $baseFont;
         margin: 0;
         font-weight: bold;

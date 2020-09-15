@@ -21,7 +21,7 @@ const ContentValidator = require('./contentValidator')
 const ExceptionMessages = require('./exceptionMessages')
 
 const plotRadar = function (title, blips) {
-  document.title = 'QAware Technologieradar'
+  document.title = 'QAware: Technologieradar'
   d3.selectAll('.loading').remove()
 
   const rings = ['Adopt', 'Trial', 'Assess', 'Hold']
