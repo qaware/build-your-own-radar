@@ -6,16 +6,15 @@ header {
   z-index: 2000;
   background: #ffffff;
   border-bottom: 1px solid #cdcdcd;
-  font-family: "Univers Bold", sans-serif;
 
-  .buttons-group, #alternative-buttons {
+  .buttons-group {
     display: inline-flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     align-content: space-between;
   }
-  .quadrant-btn--group, .multiple-sheet-button-group {
+  .quadrant-btn--group {
     text-align: left;
     padding-left: 10%;
     list-style-type: none;
@@ -26,53 +25,41 @@ header {
     padding: 15px 0 25px;
     list-style-type: none;
   }
-
-  .home-link {
-    color: $blue;
-    margin-bottom: 10px;
-    line-height: normal;
-    cursor: pointer;
-    display: inline-block;
-    font-size: $baseFont;
-    text-align: left;
-    width: 80%;
-  }
-
-
 }
 
 
 #main-header {
-  max-width: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: "Univers Bold", sans-serif;
 }
 
 #main-header-logo {
-  padding-left: 15px;
+  padding-left: 5px;
   padding-top: 9px;
   float: left;
-  width: 25%;
 }
 
 #headline {
   width: 100%;
-  min-height: 150px;
-  margin: 0;
+  min-height: 550px;
+  max-height: 550px;
+  background-repeat: no-repeat;
+  background-size: auto, 100%;
   background-image: url("https://www.qaware.de/fileadmin/user_upload/Stagemoods/qaw-stage-home.png");
 }
 
 #headline-text {
-  margin: 0;
-  font-size: 60px;
-  font-weight: 900;
-  padding-top: 10%;
-  padding-left: 5%;
+  max-width: 1140px;
+  margin: 0 auto;
+  font-size: 50px;
+  padding-top: 450px;
   color: white;
   float: bottom;
 }
@@ -84,10 +71,10 @@ header {
 
 #main-header-nav-items-container {
   width: 100%;
-  padding-top: 20px;
-  margin-top: 10px;
-  padding-left: 15%;
-  margin-left: 15%;
+  padding-top: 2.5%;
+  margin-top: 2.5%;
+  padding-left: 5%;
+  margin-left: 5%;
   float: right;
 }
 

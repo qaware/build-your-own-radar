@@ -10,6 +10,8 @@
 
 body {
   font: 18px 'Univers LT W02';
+  margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -42,6 +44,7 @@ body {
       font-size: 36pt;
       padding: 0 10px;
       margin-bottom: 20px;
+      margin-top: 20px;
     }
 
     &.first .quadrant-table__name {
@@ -101,50 +104,10 @@ body {
   header {
     text-align: left;
 
-    .radar-title .radar-title__text {
-      font-size: 20px;
-      width: 100%;
-      padding: 10px;
-      display: block;
-    }
-
-    .radar-title .radar-title__logo {
-      display: block;
-      width: auto;
-
-      a {
-        padding: 40px 10px 0;
-        display: block;
-
-        &::after {
-          display: none;
-        }
-      }
-
-      img {
-        max-width: 150px;
-      }
-    }
-
     .buttons-group {
       display: none;
     }
 
-    .home-link {
-      display: none;
-
-      &.selected {
-        display: none;
-      }
-    }
-
-    #alternative-buttons {
-      display: none;
-    }
-
-    .print-radar {
-      display: none;
-    }
   }
 
   #footer {
@@ -162,6 +125,7 @@ body {
 
   #radar {
     width: 80%;
+    max-width: 1140px;
     margin: 0 auto;
     position: relative;
 
@@ -253,9 +217,12 @@ body {
     }
 
     div.quadrant-table {
+      padding-top: 2%;
+      margin-top: 2%;
 
       .quadrant-table__name {
-        display: none;
+        text-transform: uppercase;
+        font-family: "Univers Bold",sans-serif;
       }
 
       max-height: 0;
@@ -267,6 +234,7 @@ body {
 
       h3 {
         text-transform: uppercase;
+        font-family: "Univers Bold",sans-serif;
         font-size: $baseFont;
         margin: 0;
         font-weight: bold;
