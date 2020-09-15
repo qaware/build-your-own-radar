@@ -29,8 +29,9 @@ header {
 
 
 #main-header {
-  max-width: 1140px;
-  margin-left: auto;
+
+  width: 1140px;
+  margin-left: 17%;
   margin-right: auto;
   position: relative;
   min-height: 80px;
@@ -39,11 +40,12 @@ header {
   align-items: center;
   font-family: "Univers Bold", sans-serif;
   letter-spacing: 0.05em;
+
 }
 
 #main-header-logo {
-  padding-left: 5px;
-  padding-top: 9px;
+  padding-left: 3px;
+  padding-top: 14px;
   float: left;
 }
 
@@ -58,7 +60,7 @@ header {
 
 #headline-text {
   max-width: 1140px;
-  margin: 0 auto;
+  margin: 0 17%;
   font-size: 50px;
   padding-top: 450px;
   color: white;
@@ -75,6 +77,10 @@ header {
   margin-top: 0.5%;
   padding-left: 0;
   margin-left: auto;
+  float: right;
+}
+
+header nav {
   float: right;
 }
 
