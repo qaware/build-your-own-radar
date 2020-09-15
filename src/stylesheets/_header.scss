@@ -39,8 +39,6 @@ header {
   flex-direction: row;
   align-items: center;
   font-family: "Univers Bold", sans-serif;
-  letter-spacing: 0.05em;
-
 }
 
 #main-header-logo {
@@ -74,10 +72,11 @@ header {
 
 #main-header-nav-items-container {
   width: 100%;
-  margin-top: 0.5%;
+  margin-top: 0;
   padding-left: 0;
   margin-left: auto;
   float: right;
+  font-size: 16px;
 }
 
 header nav {
