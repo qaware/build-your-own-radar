@@ -106,7 +106,7 @@ const GoogleSheetInput = function () {
 }
 
 function setDocumentTitle () {
-  document.title = 'QAware Techradar'
+  document.title = 'QAware: Technologieradar'
 }
 
 function plotLoading (content) {

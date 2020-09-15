@@ -246,8 +246,7 @@ body {
 
       &.first {
         &.selected {
-          float: right;
-          text-align: right;
+          float: left;
         }
       }
 
@@ -265,15 +264,14 @@ body {
 
       &.fourth {
         &.selected {
-          float: right;
-          text-align: right;
+          float: left;
         }
       }
 
       &.selected {
         position: relative;
         max-height: 10000px;
-        max-width: 35%;
+        max-width: 30%;
       }
 
       ul {
@@ -301,12 +299,14 @@ body {
             max-height: 0;
             overflow: hidden;
             width: 300px;
+            border-bottom: 0;
+            border-top: 0;
 
-            p {
-              margin: 0;
+            .description-paragraph {
+              margin: 20px;
               border-top: 1px solid rgb(119, 119, 119);
               border-bottom: 1px solid rgb(119, 119, 119);
-              padding: 20px;
+              padding: 0;
               color: $grey-text;
               font-weight: 100;
               font-size: 14px;
@@ -317,6 +317,7 @@ body {
             &.expanded {
               transition: max-height 0.5s ease 0.2s;
               max-height: 1000px;
+              border: white;
             }
           }
         }
