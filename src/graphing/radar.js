@@ -305,25 +305,24 @@ const Radar = function (size, radar) {
     let y = 10
 
     if (order === 'first') {
-      x = 3 * size / 5
-      y = 1 * size / 5
+      x = 4 * size / 5 - 15
+      y = 1 * size / 5 - 20
     }
 
     if (order === 'second') {
-      x = 2 * size / 5 - 15
+      x = 1 * size / 5 - 15
       y = 1 * size / 5 - 20
     }
 
     if (order === 'third') {
-      x = 1 * size / 5 - 15
-      y = 3 * size / 5 + 15
+      x = 1 * size / 5 - 25
+      y = 4 * size / 5 + 15
     }
 
     if (order === 'fourth') {
-      x = 3 * size / 5
-      y = 3 * size / 5
+      x = 3 * size / 5 + 15
+      y = 4 * size / 5 + 15
     }
-    y -= 100
 
     d3.select('.legend')
       .attr('class', 'legend legend-' + order)
@@ -414,7 +413,7 @@ const Radar = function (size, radar) {
     d3.selectAll('.quadrant-table.' + order).classed('selected', true)
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
-    const scale = (window.innerWidth - 0.6 * size) / (size)
+    const scale = 2
 
     const adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     const adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
