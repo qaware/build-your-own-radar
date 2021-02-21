@@ -20,7 +20,6 @@ resource "google_cloudbuild_trigger" "github-trigger" {
     	branch = "master"
     }
   }
-  
 }
 
 resource "google_storage_bucket" "static-site" {
@@ -28,7 +27,6 @@ resource "google_storage_bucket" "static-site" {
   location      = "EU"
   force_destroy = true
   project = "qaware-techradar"
-
 }
 
 
