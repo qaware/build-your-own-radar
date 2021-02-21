@@ -120,7 +120,7 @@ function plotLoading (content) {
 
   setDocumentTitle()
 
-  plotLogo(content)
+  // plotLogo(content)
 
   const bannerText = '<h1>QAware Technology Radar. Use the Right Tools for the Job!</h1>'
   plotBanner(content, bannerText)
