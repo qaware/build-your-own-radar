@@ -21,7 +21,7 @@ const ContentValidator = require('./contentValidator')
 const ExceptionMessages = require('./exceptionMessages')
 
 const plotRadar = function (title, blips) {
-  document.title = 'QAware: Technologieradar'
+  document.title = 'QAware Technology Radar. Use the Right Tools for the Job!'
   d3.selectAll('.loading').remove()
 
   const rings = ['Adopt', 'Trial', 'Assess', 'Hold']
@@ -106,7 +106,7 @@ const GoogleSheetInput = function () {
 }
 
 function setDocumentTitle () {
-  document.title = 'QAware: Technologieradar'
+  document.title = 'QAware Technology Radar. Use the Right Tools for the Job!'
 }
 
 function plotLoading (content) {
@@ -120,7 +120,7 @@ function plotLoading (content) {
 
   plotLogo(content)
 
-  const bannerText = '<h1>Building your radar...</h1><p>Your Technology Radar will be available in just a few seconds</p>'
+  const bannerText = '<h1>QAware Technology Radar. Use the Right Tools for the Job!</h1>'
   plotBanner(content, bannerText)
 }
 

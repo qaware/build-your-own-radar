@@ -336,7 +336,7 @@ const Radar = function (size, radar) {
       .attr('id', 'headline')
       .append('p')
       .attr('id', 'headline-text')
-      .text('Technologieradar')
+      .text('Technology Radar')
     const mainHeader = header.append('div')
       .attr('id', 'main-header')
     mainHeader.append('a')

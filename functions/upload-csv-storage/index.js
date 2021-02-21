@@ -1,9 +1,12 @@
 const functions = require('firebase-functions')
+
 const admin = require('firebase-admin')
 admin.initializeApp(functions.config().firebase)
+
 const csvtojson = require('csvtojson')
 const { Storage } = require('@google-cloud/storage')
 const db = admin.firestore()
+
 exports.uploadSourceFromStorage = (event, context) => {
   const storage = new Storage()
   const bucket = storage.bucket('techradar-versiondata')
