@@ -110,6 +110,8 @@ function setDocumentTitle () {
 }
 
 function plotLoading (content) {
+  d3.select('h1').remove()
+
   content = d3.select('body')
     .append('div')
     .attr('class', 'loading')
@@ -127,7 +129,7 @@ function plotLoading (content) {
 function plotLogo (content) {
   content.append('div')
     .attr('class', 'input-sheet__logo')
-    .html('<a href="https://www.qaware,de"><img src="/images/tw-logo.png" / ></a>')
+    .html('<a href="https://www.qaware.de"><img src="/images/qaware-logo.png" /></a>')
 }
 
 function plotBanner (content, text) {
