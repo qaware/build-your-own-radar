@@ -10,5 +10,7 @@ coverage/
 .idea/
 .DS_Store
 
+.terraform/
+
 spec/end_to_end_tests/reports/
 cypress/
